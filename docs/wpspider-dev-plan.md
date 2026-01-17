@@ -42,19 +42,19 @@ This document outlines the phased development plan to build the `wpspider` MVP (
 **Goal:** Build the core logic for URL construction, API requests, and pagination.
 
 1.  **URL Construction**
-    -   [ ] Implement `UrlBuilder` utility.
-    -   [ ] Logic to handle direct URL inputs vs. domain inputs.
-    -   [ ] Logic to append `/wp-json/wp/v2/` (or discovery) if plain domain is given.
+    -   [x] Implement `UrlBuilder` utility.
+    -   [x] Logic to handle direct URL inputs vs. domain inputs.
+    -   [x] Logic to append `/wp-json/wp/v2/` (or discovery) if plain domain is given.
 
 2.  **Request Handler**
-    -   [ ] Implement robust HTTP request wrapper (using `requests`).
-    -   [ ] Add timeout and connection error handling.
-    -   [ ] Add user-agent headers.
+    -   [x] Implement robust HTTP request wrapper (using `requests`).
+    -   [x] Add timeout and connection error handling.
+    -   [x] Add user-agent headers.
 
 3.  **Pagination Logic**
-    -   [ ] Implement the pagination loop (`?per_page=100&page=X`).
-    -   [ ] Detect termination condition: Empty array `[]` response or HTTP 400 (some WP versions return error on out-of-bounds page).
-    -   [ ] Handle rate limits (basic sleep if needed, though not strictly specified).
+    -   [x] Implement the pagination loop (`?per_page=100&page=X`).
+    -   [x] Detect termination condition: Empty array `[]` response or HTTP 400 (some WP versions return error on out-of-bounds page).
+    -   [x] Handle rate limits (basic sleep if needed, though not strictly specified).
 
 ## Phase 4: Integration & Data Flow
 **Goal:** Connect the Crawler to the Database and create the main execution loop.
