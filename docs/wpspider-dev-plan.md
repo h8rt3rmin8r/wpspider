@@ -60,8 +60,8 @@ This document outlines the phased development plan to build the `wpspider` MVP (
 **Goal:** Connect the Crawler to the Database and create the main execution loop.
 
 1.  **Pipeline Orchestration**
-    -   [ ] Create `main.py` entry point.
-    -   [ ] Workflow:
+    -   [x] Create `main.py` entry point.
+    -   [x] Workflow:
         1.  Load Config.
         2.  Init DB & Log target.
         3.  Iterate Endpoints.
@@ -69,11 +69,11 @@ This document outlines the phased development plan to build the `wpspider` MVP (
         5.  Save batches to DB.
 
 2.  **Error Handling Polish**
-    -   [ ] Ensure one failed endpoint doesn't crash the whole run.
-    -   [ ] Log specific errors (403 Forbidden, 404 Not Found) without stopping.
+    -   [x] Ensure one failed endpoint doesn't crash the whole run.
+    -   [x] Log specific errors (403 Forbidden, 404 Not Found) without stopping.
 
 3.  **CLI Arguments**
-    -   [ ] Parse command line args to override `config.json` (e.g., `--target`, `--output`).
+    -   [x] Parse command line args to override `config.json` (e.g., `--target`, `--output`).
 
 ## Phase 5: Build & Distribution
 **Goal:** package the application for end-users.
