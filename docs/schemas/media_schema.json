@@ -1,0 +1,2334 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "date": {
+                "type": "string"
+            },
+            "date_gmt": {
+                "type": "string"
+            },
+            "guid": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "modified": {
+                "type": "string"
+            },
+            "modified_gmt": {
+                "type": "string"
+            },
+            "slug": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string"
+            },
+            "link": {
+                "type": "string"
+            },
+            "title": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "author": {
+                "type": "integer"
+            },
+            "featured_media": {
+                "type": "integer"
+            },
+            "comment_status": {
+                "type": "string"
+            },
+            "ping_status": {
+                "type": "string"
+            },
+            "template": {
+                "type": "string"
+            },
+            "meta": {
+                "type": "object",
+                "properties": {
+                    "_acf_changed": {
+                        "type": "boolean"
+                    },
+                    "inline_featured_image": {
+                        "type": "boolean"
+                    },
+                    "_links_to": {
+                        "type": "string"
+                    },
+                    "_links_to_target": {
+                        "type": "string"
+                    },
+                    "_monsterinsights_skip_tracking": {
+                        "type": "boolean"
+                    },
+                    "_monsterinsights_sitenote_active": {
+                        "type": "boolean"
+                    },
+                    "_monsterinsights_sitenote_note": {
+                        "type": "string"
+                    },
+                    "_monsterinsights_sitenote_category": {
+                        "type": "integer"
+                    },
+                    "_et_pb_use_builder": {
+                        "type": "string"
+                    },
+                    "_et_pb_old_content": {
+                        "type": "string"
+                    },
+                    "_et_gb_content_width": {
+                        "type": "string"
+                    }
+                }
+            },
+            "class_list": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "yoast_head": {
+                "type": "string"
+            },
+            "yoast_head_json": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "robots": {
+                        "type": "object",
+                        "properties": {
+                            "index": {
+                                "type": "string"
+                            },
+                            "follow": {
+                                "type": "string"
+                            },
+                            "max-snippet": {
+                                "type": "string"
+                            },
+                            "max-image-preview": {
+                                "type": "string"
+                            },
+                            "max-video-preview": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "follow",
+                            "index"
+                        ]
+                    },
+                    "canonical": {
+                        "type": "string"
+                    },
+                    "og_locale": {
+                        "type": "string"
+                    },
+                    "og_type": {
+                        "type": "string"
+                    },
+                    "og_title": {
+                        "type": "string"
+                    },
+                    "og_description": {
+                        "type": "string"
+                    },
+                    "og_url": {
+                        "type": "string"
+                    },
+                    "og_site_name": {
+                        "type": "string"
+                    },
+                    "article_publisher": {
+                        "type": "string"
+                    },
+                    "twitter_misc": {
+                        "type": "object",
+                        "properties": {
+                            "Written by": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Written by"
+                        ]
+                    },
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "@context": {
+                                "type": "string"
+                            },
+                            "@graph": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "@type": {
+                                            "type": "string"
+                                        },
+                                        "@id": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "isPartOf": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "datePublished": {
+                                            "type": "string"
+                                        },
+                                        "breadcrumb": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "inLanguage": {
+                                            "type": "string"
+                                        },
+                                        "potentialAction": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "type": "string"
+                                                    },
+                                                    "target": {
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@type": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "urlTemplate": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@type",
+                                                                    "urlTemplate"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "query-input": {
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@type": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "valueRequired": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "valueName": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@type",
+                                                                    "valueName",
+                                                                    "valueRequired"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type",
+                                                    "target"
+                                                ]
+                                            }
+                                        },
+                                        "itemListElement": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "type": "string"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "item": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type",
+                                                    "name",
+                                                    "position"
+                                                ]
+                                            }
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "publisher": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "logo": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "inLanguage": {
+                                                    "type": "string"
+                                                },
+                                                "@id": {
+                                                    "type": "string"
+                                                },
+                                                "url": {
+                                                    "type": "string"
+                                                },
+                                                "contentUrl": {
+                                                    "type": "string"
+                                                },
+                                                "width": {
+                                                    "type": "integer"
+                                                },
+                                                "height": {
+                                                    "type": "integer"
+                                                },
+                                                "caption": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "caption",
+                                                "contentUrl",
+                                                "height",
+                                                "inLanguage",
+                                                "url",
+                                                "width"
+                                            ]
+                                        },
+                                        "image": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "sameAs": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "dateModified": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "@context",
+                            "@graph"
+                        ]
+                    },
+                    "article_modified_time": {
+                        "type": "string"
+                    },
+                    "og_image": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "width": {
+                                    "type": "integer"
+                                },
+                                "height": {
+                                    "type": "integer"
+                                },
+                                "url": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "height",
+                                "type",
+                                "url",
+                                "width"
+                            ]
+                        }
+                    },
+                    "twitter_card": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "article_publisher",
+                    "og_locale",
+                    "og_site_name",
+                    "og_title",
+                    "og_type",
+                    "og_url",
+                    "robots",
+                    "schema",
+                    "title"
+                ]
+            },
+            "acf": {
+                "type": "array"
+            },
+            "publishpress_future_workflow_manual_trigger": {
+                "type": "object",
+                "properties": {
+                    "enabledWorkflows": {
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "enabledWorkflows"
+                ]
+            },
+            "description": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "caption": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "alt_text": {
+                "type": "string"
+            },
+            "media_type": {
+                "type": "string"
+            },
+            "mime_type": {
+                "type": "string"
+            },
+            "media_details": {
+                "type": "object",
+                "properties": {
+                    "filesize": {
+                        "type": "integer"
+                    },
+                    "sizes": {
+                        "type": "object",
+                        "properties": {
+                            "medium": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "integer",
+                                            "string"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "large": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "integer",
+                                            "string"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "thumbnail": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "integer",
+                                            "string"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "medium_large": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "integer",
+                                            "string"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "1536x1536": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "2048x2048": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "post-thumbnail": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "hero-wide": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "hero-desk": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "hero-lap": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "hero-palm": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "carousel-desk": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "carousel-lap": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "carousel-palm": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "home-tout": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "board-member": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "executive-leadership": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "sub-section-grid": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "single-featured-image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "static-aside": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "partner-logo": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "author-avatar": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "full-width": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": [
+                                            "boolean",
+                                            "integer"
+                                        ]
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    },
+                                    "crop": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "full": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "site_icon-270": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "site_icon-192": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "site_icon-180": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "site_icon-32": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "logo_image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "service_image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "gform-image-choice-sm": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "gform-image-choice-md": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "gform-image-choice-lg": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "home_slider_image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "banner_image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-post-main-image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-portfolio-image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-portfolio-module-image": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-gallery-module-image-portrait": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-image--responsive--phone": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "yarpp-thumbnail": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-post-main-image-fullwidth": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-portfolio-image-single": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-post-main-image-fullwidth-large": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-image--responsive--desktop": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            },
+                            "et-pb-image--responsive--tablet": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string"
+                                    },
+                                    "width": {
+                                        "type": "integer"
+                                    },
+                                    "height": {
+                                        "type": "integer"
+                                    },
+                                    "filesize": {
+                                        "type": "integer"
+                                    },
+                                    "mime_type": {
+                                        "type": "string"
+                                    },
+                                    "source_url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "filesize",
+                                    "height",
+                                    "mime_type",
+                                    "source_url",
+                                    "width"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "full",
+                            "medium",
+                            "thumbnail"
+                        ]
+                    },
+                    "width": {
+                        "type": "integer"
+                    },
+                    "height": {
+                        "type": "integer"
+                    },
+                    "file": {
+                        "type": "string"
+                    },
+                    "image_meta": {
+                        "type": "object",
+                        "properties": {
+                            "aperture": {
+                                "type": "string"
+                            },
+                            "credit": {
+                                "type": "string"
+                            },
+                            "camera": {
+                                "type": "string"
+                            },
+                            "caption": {
+                                "type": "string"
+                            },
+                            "created_timestamp": {
+                                "type": "string"
+                            },
+                            "copyright": {
+                                "type": "string"
+                            },
+                            "focal_length": {
+                                "type": "string"
+                            },
+                            "iso": {
+                                "type": "string"
+                            },
+                            "shutter_speed": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "orientation": {
+                                "type": "string"
+                            },
+                            "keywords": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "aperture",
+                            "camera",
+                            "caption",
+                            "copyright",
+                            "created_timestamp",
+                            "credit",
+                            "focal_length",
+                            "iso",
+                            "keywords",
+                            "orientation",
+                            "shutter_speed",
+                            "title"
+                        ]
+                    },
+                    "original_image": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sizes"
+                ]
+            },
+            "post": {
+                "type": [
+                    "integer",
+                    "null"
+                ]
+            },
+            "source_url": {
+                "type": "string"
+            },
+            "_links": {
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                },
+                                "targetHints": {
+                                    "type": "object",
+                                    "properties": {
+                                        "allow": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "allow"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "collection": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "about": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "author": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    },
+                    "replies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    },
+                    "wp:attached-to": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "post_type": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href",
+                                "id",
+                                "post_type"
+                            ]
+                        }
+                    },
+                    "curies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                },
+                                "templated": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "href",
+                                "name",
+                                "templated"
+                            ]
+                        }
+                    },
+                    "wp:featuredmedia": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "about",
+                    "author",
+                    "collection",
+                    "self"
+                ]
+            }
+        },
+        "required": [
+            "_links",
+            "alt_text",
+            "author",
+            "caption",
+            "comment_status",
+            "date",
+            "date_gmt",
+            "description",
+            "guid",
+            "id",
+            "link",
+            "media_details",
+            "media_type",
+            "meta",
+            "mime_type",
+            "modified",
+            "modified_gmt",
+            "ping_status",
+            "post",
+            "slug",
+            "source_url",
+            "status",
+            "template",
+            "title",
+            "type"
+        ]
+    }
+}

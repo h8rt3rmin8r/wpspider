@@ -85,6 +85,13 @@ Param(
         $inFileBaseName = [System.IO.Path]::GetFileNameWithoutExtension("$inFile")
         $inFileDirectory = [System.IO.Path]::GetDirectoryName("$inFile")
         $outFile = -join("$inFileDirectory","$Sep","$inFileBaseName","$outSuffix")
+        # If the file does not exist, display an error message and exit the script
+        if (-not (Test-Path -LiteralPath "$inFile")) {
+            if ($Verbosity) {
+                Write-Host "Error: Input file '$inFile' does not exist. Please provide a valid JSON file." -ForegroundColor Red
+            }
+            exit 1
+        }
         # Write verbosity message before processing
         if ($Verbosity) {
             Write-Host "Processing file: $inFile -> $outFile"
@@ -96,15 +103,21 @@ Param(
         $Counter = 1
         $CounterMax = $InputFilesCount
         foreach ($inFile in $InputFiles) {
-            $inFileBaseName = [System.IO.Path]::GetFileNameWithoutExtension("$inFile")
-            $inFileDirectory = [System.IO.Path]::GetDirectoryName("$inFile")
-            $outFile = -join("$inFileDirectory","$Sep","$inFileBaseName","$outSuffix")
-            $verbosityPrefix = "[ $Counter of $CounterMax ] "
-            # Write verbosity message before processing
-            if ($Verbosity) {
-                Write-Host "$verbosityPrefix Processing file: $inFile -> $outFile"
+            if (-not (Test-Path -LiteralPath "$inFile")) {
+                if ($Verbosity) {
+                    Write-Host "Warning: Input file '$inFile' does not exist. Skipping iteration." -ForegroundColor Yellow
+                }
+            } else {
+                $inFileBaseName = [System.IO.Path]::GetFileNameWithoutExtension("$inFile")
+                $inFileDirectory = [System.IO.Path]::GetDirectoryName("$inFile")
+                $outFile = -join("$inFileDirectory","$Sep","$inFileBaseName","$outSuffix")
+                $verbosityPrefix = "[ $Counter of $CounterMax ] "
+                # Write verbosity message before processing
+                if ($Verbosity) {
+                    Write-Host "$verbosityPrefix Processing file: $inFile -> $outFile"
+                }
+                genson -i 4 --schema-uri "$schemaUri" "$inFile" > "$outFile"
             }
-            genson -i 4 --schema-uri "$schemaUri" "$inFile" > "$outFile"
             $Counter++
         }
     }

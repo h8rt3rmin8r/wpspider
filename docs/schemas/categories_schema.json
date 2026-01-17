@@ -1,0 +1,491 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "count": {
+                "type": "integer"
+            },
+            "description": {
+                "type": "string"
+            },
+            "link": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "slug": {
+                "type": "string"
+            },
+            "taxonomy": {
+                "type": "string"
+            },
+            "parent": {
+                "type": "integer"
+            },
+            "meta": {
+                "type": "array"
+            },
+            "_links": {
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                },
+                                "targetHints": {
+                                    "type": "object",
+                                    "properties": {
+                                        "allow": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "allow"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "collection": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "about": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "wp:post_type": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "curies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                },
+                                "templated": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "href",
+                                "name",
+                                "templated"
+                            ]
+                        }
+                    },
+                    "up": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "about",
+                    "collection",
+                    "curies",
+                    "self",
+                    "wp:post_type"
+                ]
+            },
+            "yoast_head": {
+                "type": "string"
+            },
+            "yoast_head_json": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "robots": {
+                        "type": "object",
+                        "properties": {
+                            "index": {
+                                "type": "string"
+                            },
+                            "follow": {
+                                "type": "string"
+                            },
+                            "max-snippet": {
+                                "type": "string"
+                            },
+                            "max-image-preview": {
+                                "type": "string"
+                            },
+                            "max-video-preview": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "follow",
+                            "index",
+                            "max-image-preview",
+                            "max-snippet",
+                            "max-video-preview"
+                        ]
+                    },
+                    "canonical": {
+                        "type": "string"
+                    },
+                    "og_locale": {
+                        "type": "string"
+                    },
+                    "og_type": {
+                        "type": "string"
+                    },
+                    "og_title": {
+                        "type": "string"
+                    },
+                    "og_description": {
+                        "type": "string"
+                    },
+                    "og_url": {
+                        "type": "string"
+                    },
+                    "og_site_name": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "@context": {
+                                "type": "string"
+                            },
+                            "@graph": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "@type": {
+                                            "type": "string"
+                                        },
+                                        "@id": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "isPartOf": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "breadcrumb": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "inLanguage": {
+                                            "type": "string"
+                                        },
+                                        "itemListElement": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "type": "string"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "item": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type",
+                                                    "name",
+                                                    "position"
+                                                ]
+                                            }
+                                        },
+                                        "publisher": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "potentialAction": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "type": "string"
+                                                    },
+                                                    "target": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@type": {
+                                                                "type": "string"
+                                                            },
+                                                            "urlTemplate": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@type",
+                                                            "urlTemplate"
+                                                        ]
+                                                    },
+                                                    "query-input": {
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@type": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "valueRequired": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "valueName": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@type",
+                                                                    "valueName",
+                                                                    "valueRequired"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type",
+                                                    "query-input",
+                                                    "target"
+                                                ]
+                                            }
+                                        },
+                                        "logo": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "inLanguage": {
+                                                    "type": "string"
+                                                },
+                                                "@id": {
+                                                    "type": "string"
+                                                },
+                                                "url": {
+                                                    "type": "string"
+                                                },
+                                                "contentUrl": {
+                                                    "type": "string"
+                                                },
+                                                "width": {
+                                                    "type": "integer"
+                                                },
+                                                "height": {
+                                                    "type": "integer"
+                                                },
+                                                "caption": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "caption",
+                                                "contentUrl",
+                                                "height",
+                                                "inLanguage",
+                                                "url",
+                                                "width"
+                                            ]
+                                        },
+                                        "image": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        "sameAs": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "@context",
+                            "@graph"
+                        ]
+                    },
+                    "twitter_card": {
+                        "type": "string"
+                    },
+                    "twitter_site": {
+                        "type": "string"
+                    },
+                    "og_image": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "width": {
+                                    "type": "integer"
+                                },
+                                "height": {
+                                    "type": "integer"
+                                },
+                                "url": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "height",
+                                "type",
+                                "url",
+                                "width"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "canonical",
+                    "og_locale",
+                    "og_site_name",
+                    "og_title",
+                    "og_type",
+                    "og_url",
+                    "robots",
+                    "schema",
+                    "title"
+                ]
+            },
+            "acf": {
+                "type": "array"
+            }
+        },
+        "required": [
+            "_links",
+            "count",
+            "description",
+            "id",
+            "link",
+            "meta",
+            "name",
+            "parent",
+            "slug",
+            "taxonomy"
+        ]
+    }
+}

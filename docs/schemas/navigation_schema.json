@@ -1,0 +1,219 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "date": {
+                "type": "string"
+            },
+            "date_gmt": {
+                "type": "string"
+            },
+            "guid": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "modified": {
+                "type": "string"
+            },
+            "modified_gmt": {
+                "type": "string"
+            },
+            "slug": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string"
+            },
+            "link": {
+                "type": "string"
+            },
+            "title": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "content": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    },
+                    "protected": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "protected",
+                    "rendered"
+                ]
+            },
+            "template": {
+                "type": "string"
+            },
+            "_links": {
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                },
+                                "targetHints": {
+                                    "type": "object",
+                                    "properties": {
+                                        "allow": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "allow"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "href",
+                                "targetHints"
+                            ]
+                        }
+                    },
+                    "collection": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "about": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "version-history": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "count": {
+                                    "type": "integer"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "count",
+                                "href"
+                            ]
+                        }
+                    },
+                    "wp:attachment": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "curies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                },
+                                "templated": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "href",
+                                "name",
+                                "templated"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "about",
+                    "collection",
+                    "curies",
+                    "self",
+                    "version-history",
+                    "wp:attachment"
+                ]
+            },
+            "acf": {
+                "type": "array"
+            }
+        },
+        "required": [
+            "_links",
+            "content",
+            "date",
+            "date_gmt",
+            "guid",
+            "id",
+            "link",
+            "modified",
+            "modified_gmt",
+            "slug",
+            "status",
+            "template",
+            "title",
+            "type"
+        ]
+    }
+}

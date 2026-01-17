@@ -1,0 +1,206 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "post": {
+                "type": "integer"
+            },
+            "parent": {
+                "type": "integer"
+            },
+            "author": {
+                "type": "integer"
+            },
+            "author_name": {
+                "type": "string"
+            },
+            "author_url": {
+                "type": "string"
+            },
+            "date": {
+                "type": "string"
+            },
+            "date_gmt": {
+                "type": "string"
+            },
+            "content": {
+                "type": "object",
+                "properties": {
+                    "rendered": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "rendered"
+                ]
+            },
+            "link": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string"
+            },
+            "author_avatar_urls": {
+                "type": "object",
+                "properties": {
+                    "24": {
+                        "type": "string"
+                    },
+                    "48": {
+                        "type": "string"
+                    },
+                    "96": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "24",
+                    "48",
+                    "96"
+                ]
+            },
+            "meta": {
+                "type": "array"
+            },
+            "_links": {
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "collection": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "href"
+                            ]
+                        }
+                    },
+                    "author": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    },
+                    "up": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "post_type": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href",
+                                "post_type"
+                            ]
+                        }
+                    },
+                    "in-reply-to": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    },
+                    "children": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "embeddable": {
+                                    "type": "boolean"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "embeddable",
+                                "href"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "collection",
+                    "self",
+                    "up"
+                ]
+            }
+        },
+        "required": [
+            "_links",
+            "author",
+            "author_avatar_urls",
+            "author_name",
+            "author_url",
+            "content",
+            "date",
+            "date_gmt",
+            "id",
+            "link",
+            "meta",
+            "parent",
+            "post",
+            "status",
+            "type"
+        ]
+    }
+}
