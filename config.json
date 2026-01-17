@@ -8,6 +8,8 @@
         "tags",
         "users"
     ],
-    "db_name": "wpspider.db",
+    "db_name": null,
+    "output_directory": null,
+    "user_agent": "WPSpider/1.0 (Nebula Crawler; +https://wpspider.local)",
     "log_file": "wpspider.log"
 }

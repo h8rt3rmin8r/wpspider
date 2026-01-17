@@ -1,6 +1,7 @@
 import json
 import os
 import argparse
+import re
 from typing import List, Optional
 from urllib.parse import urlparse
 
@@ -19,7 +20,9 @@ class Config:
         self.config_path = config_path
         self.target: Optional[str] = None
         self.endpoints: List[str] = DEFAULT_ENDPOINTS
-        self.db_name: str = "wpspider.db"
+        self.db_name: Optional[str] = None
+        self.output_directory: Optional[str] = None
+        self.user_agent: str = "WPSpider/1.0 (Nebula Crawler; +https://wpspider.local)"
         self.log_file: str = "wpspider.log"
         
         # Load from file
@@ -43,7 +46,9 @@ class Config:
                 
             self.target = data.get("target", self.target)
             self.endpoints = data.get("endpoints", self.endpoints)
-            self.db_name = data.get("db_name", self.db_name)
+            self.db_name = data.get("db_name", data.get("output", self.db_name))
+            self.output_directory = data.get("output_directory", data.get("directory", self.output_directory))
+            self.user_agent = data.get("user_agent", self.user_agent)
             self.log_file = data.get("log_file", self.log_file)
             
         except json.JSONDecodeError:
@@ -57,6 +62,12 @@ class Config:
         
         if hasattr(args, 'output') and args.output:
             self.db_name = args.output
+
+        if hasattr(args, 'directory') and args.directory:
+            self.output_directory = args.directory
+
+        if hasattr(args, 'user_agent') and args.user_agent:
+            self.user_agent = args.user_agent
             
         # Add more arg overrides as needed
 
@@ -68,6 +79,14 @@ class Config:
         
         if not self.endpoints:
             raise ValueError("Configuration Error: No endpoints specified.")
+
+        # Resolve output path
+        if self.db_name and self.output_directory:
+            # Mutually exclusive: output file wins
+            print("Warning: Both output file and output directory specified; using output file and ignoring output directory.")
+
+        if not self.db_name:
+            self.db_name = self._derive_output_path(self.target, self.output_directory)
 
     @staticmethod
     def _normalize_target(target: str) -> str:
@@ -83,6 +102,25 @@ class Config:
             normalized = f"https://{normalized}"
 
         return normalized
+
+    @staticmethod
+    def _sanitize_domain(domain: str) -> str:
+        if not domain:
+            return "target"
+        # Replace invalid filename chars with underscore
+        safe = re.sub(r"[^A-Za-z0-9._-]", "_", domain)
+        return safe.strip("._") or "target"
+
+    @classmethod
+    def _derive_output_path(cls, target: str, output_directory: Optional[str]) -> str:
+        parsed = urlparse(target)
+        domain = parsed.netloc or parsed.path.split('/')[0]
+        domain = domain.replace(":", "_")
+        safe_domain = cls._sanitize_domain(domain)
+        filename = f"{safe_domain}.sqlite"
+
+        base_dir = output_directory if output_directory is not None else os.getcwd()
+        return os.path.join(base_dir, filename)
 
     def __repr__(self):
         return f"<Config target={self.target} db={self.db_name} endpoints={len(self.endpoints)}>"

@@ -1,7 +1,8 @@
 import logging
 import time
 import requests
-from typing import List, Dict, Any, Generator, Optional
+from datetime import datetime
+from typing import List, Dict, Any, Generator, Optional, Tuple
 from urllib.parse import urljoin, urlparse
 
 logger = logging.getLogger(__name__)
@@ -45,11 +46,11 @@ class WPCrawler:
     """
     Handles the crawling logic for WordPress endpoints using pagination.
     """
-    def __init__(self, target_url: str):
+    def __init__(self, target_url: str, user_agent: Optional[str] = None):
         self.base_url = UrlBuilder.normalize_base_url(target_url)
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'wpspider/0.1 (Targeting public WP API)'
+            'User-Agent': user_agent or 'WPSpider/1.0 (Nebula Crawler; +https://wpspider.local)'
         })
     
     def fetch_page(self, url: str, params: Dict[str, Any]) -> requests.Response:
@@ -66,7 +67,7 @@ class WPCrawler:
             logger.error(f"Request failed for {url}: {e}")
             raise
 
-    def crawl_endpoint(self, endpoint: str) -> Generator[List[Dict[str, Any]], None, None]:
+    def crawl_endpoint(self, endpoint: str) -> Generator[Tuple[List[Dict[str, Any]], Dict[str, Any]], None, None]:
         """
         Yields batches of items from a specific endpoint, handling pagination.
         """
@@ -82,8 +83,22 @@ class WPCrawler:
                 'page': page
             }
             
+            started_at = datetime.now().astimezone().isoformat()
             try:
                 response = self.fetch_page(url, params)
+                completed_at = datetime.now().astimezone().isoformat()
+                request_meta = {
+                    "method": "GET",
+                    "url": response.url,
+                    "params": params,
+                    "request_headers": dict(response.request.headers) if response.request else dict(self.session.headers),
+                    "response_headers": dict(response.headers),
+                    "status_code": response.status_code,
+                    "error": None,
+                    "started_at": started_at,
+                    "completed_at": completed_at,
+                    "remote_host": urlparse(response.url).netloc
+                }
                 
                 # Check if response provides JSON content type roughly
                 content_type = response.headers.get('Content-Type', '')
@@ -95,24 +110,28 @@ class WPCrawler:
                     data = response.json()
                 except ValueError:
                     logger.error(f"Endpoint {endpoint} returned invalid JSON.")
+                    yield [], request_meta
                     break
                 
                 # Check termination conditions
                 if not data:
                     logger.info(f"Endpoint {endpoint}: Empty response at page {page}. Finished.")
+                    yield [], request_meta
                     break
                 
                 if isinstance(data, dict) and ('code' in data or 'message' in data):
                     # Some inputs might return an error object instead of list
                     # e.g. {'code': 'rest_post_invalid_page_number', 'message': '...'}
                     logger.info(f"Endpoint {endpoint}: Received API message at page {page}: {data.get('code', 'unknown')}. Finished.")
+                    yield [], request_meta
                     break
                 
                 if not isinstance(data, list):
                     logger.error(f"Endpoint {endpoint} returned unexpected format (not list): {type(data)}")
+                    yield [], request_meta
                     break
 
-                yield data
+                yield data, request_meta
                 
                 # Check headers for total pages to anticipate end
                 total_pages = response.headers.get('X-WP-TotalPages')
@@ -126,6 +145,20 @@ class WPCrawler:
                 time.sleep(0.2)
                 
             except requests.exceptions.HTTPError as e:
+                status = e.response.status_code if e.response is not None else None
+                error_meta = {
+                    "method": "GET",
+                    "url": url,
+                    "params": params,
+                    "request_headers": dict(e.response.request.headers) if e.response is not None and e.response.request else dict(self.session.headers),
+                    "response_headers": dict(e.response.headers) if e.response is not None else {},
+                    "status_code": status,
+                    "error": str(e),
+                    "started_at": started_at,
+                    "completed_at": datetime.now().astimezone().isoformat(),
+                    "remote_host": urlparse(url).netloc
+                }
+                yield [], error_meta
                 if e.response.status_code == 400:
                     logger.info(f"Endpoint {endpoint}: Received 400 Bad Request at page {page}. Assuming end of pagination.")
                     break
@@ -139,5 +172,18 @@ class WPCrawler:
                     logger.error(f"Stopping {endpoint} due to HTTP error: {e}")
                     break
             except Exception as e:
+                error_meta = {
+                    "method": "GET",
+                    "url": url,
+                    "params": params,
+                    "request_headers": dict(self.session.headers),
+                    "response_headers": {},
+                    "status_code": None,
+                    "error": str(e),
+                    "started_at": started_at,
+                    "completed_at": datetime.now().astimezone().isoformat(),
+                    "remote_host": urlparse(url).netloc
+                }
+                yield [], error_meta
                 logger.error(f"Stopping {endpoint} due to unexpected error: {e}")
                 break

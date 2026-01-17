@@ -1,6 +1,13 @@
 import logging
 import sys
 import os
+from datetime import datetime, timezone
+
+
+class Iso8601Formatter(logging.Formatter):
+    def formatTime(self, record, datefmt=None):
+        dt = datetime.fromtimestamp(record.created, tz=timezone.utc).astimezone()
+        return dt.isoformat(timespec="seconds")
 
 def setup_logging(log_file_path: str = "wpspider.log") -> logging.Logger:
     """
@@ -17,9 +24,8 @@ def setup_logging(log_file_path: str = "wpspider.log") -> logging.Logger:
         return logger
 
     # Formatter
-    formatter = logging.Formatter(
-        '%(asctime)s - %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
+    formatter = Iso8601Formatter(
+        '%(asctime)s - %(levelname)s - %(message)s'
     )
 
     # File Handler

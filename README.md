@@ -35,7 +35,7 @@ Create or edit the `config.json` file in the application directory.
 ```json
 {
     "target": "https://techcrunch.com",
-    "db_name": "techcrunch_data.db"
+    "db_name": null
 }
 ```
 
@@ -50,7 +50,9 @@ Create or edit the `config.json` file in the application directory.
         "categories",
         "users"
     ],
-    "db_name": "crawled_data.db",
+    "db_name": null,
+    "output_directory": null,
+    "user_agent": "WPSpider/1.0 (Nebula Crawler; +https://wpspider.local)",
     "log_file": "wpspider.log"
 }
 ```
@@ -59,7 +61,9 @@ Create or edit the `config.json` file in the application directory.
 | :--- | :--- | :--- |
 | `target` | The URL or domain of the WordPress site. | **Required** |
 | `endpoints` | List of API endpoints to crawl. | `['posts', 'pages', 'media', ...]` |
-| `db_name` | Name of the SQLite database file. | `wpspider.db` |
+| `db_name` | Output SQLite file. If null, filename is derived from target domain. | `null` |
+| `output_directory` | Output directory used only when `db_name` is null. | `null` (PWD) |
+| `user_agent` | Custom User-Agent string. | `WPSpider/1.0 (Nebula Crawler; +https://wpspider.local)` |
 | `log_file` | Path to save the execution log. | `wpspider.log` |
 
 ### 2. Running the Crawler
@@ -73,6 +77,13 @@ Or from source:
 ```powershell
 python -m wpspider.main
 ```
+
+Optional CLI parameters:
+
+- `--target`, `-t`, `--url`, `--site`, `--domain`
+- `--output`, `-o`, `--db`, `--database`, `--db-name`
+- `--directory`, `-d`, `--outdirectory`, `--outputdirectory`
+- `--useragent`, `--user-agent`, `-u`
 
 The tool will display progress as it connects to the target, discovers endpoints, and fetches records.
 

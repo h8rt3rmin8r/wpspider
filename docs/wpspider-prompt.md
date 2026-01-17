@@ -19,6 +19,7 @@ Write a Python module that crawls and paginates through the Wordpress API endpoi
     - posts
     - tags
     - users
+  - **Output (Optional)**: If an output file is not specified, derive the database filename from the target domain (including subdomains), e.g. `https://www.example.com/` → `www.example.com.sqlite`. If an output directory is provided, place the derived file in that directory; otherwise use the current working directory.
 
 ## Outputs
 
@@ -28,7 +29,11 @@ An sqlite database file will contain a "targets" table with metadata related to 
 - domain (Text)
 - date_crawled (Datetime)
 
+Additionally, all HTTP requests should be logged with request/response headers in granular detail for auditability and comparative analysis across crawl sessions.
+
 The output data should be written to the sqlite metadata database. The database should contain a table for each endpoint, with the table name matching the endpoint name (e.g. "posts" table for the "posts" endpoint). Each table should have columns that correspond to the fields returned by the Wordpress API for that endpoint. If necessary, to avoid data loss, columns can be created with a generic "data" column that stores the entire JSON object as text (or other appropriate format).
+
+All date/time values produced by this tool (including logs and database timestamps) should include the local timezone offset (e.g. ISO 8601 with offset).
 
 ## Operation Types
 

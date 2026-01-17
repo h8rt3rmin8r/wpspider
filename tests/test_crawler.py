@@ -68,8 +68,8 @@ class TestWPCrawler(unittest.TestCase):
 
         batches = list(self.crawler.crawl_endpoint("posts"))
         
-        self.assertEqual(len(batches), 1) # Only one batch yielded data
-        self.assertEqual(len(batches[0]), 2)
+        self.assertEqual(len(batches), 2) # One data batch + one terminal empty page
+        self.assertEqual(len(batches[0][0]), 2)
         self.assertEqual(mock_get.call_count, 2)
 
     @patch('wpspider.crawler.requests.Session.get')
@@ -90,7 +90,7 @@ class TestWPCrawler(unittest.TestCase):
 
         batches = list(self.crawler.crawl_endpoint("posts"))
         
-        self.assertEqual(len(batches), 1)
+        self.assertEqual(len(batches), 2)
         self.assertEqual(mock_get.call_count, 2)
 
     @patch('wpspider.crawler.requests.Session.get')
@@ -113,7 +113,7 @@ class TestWPCrawler(unittest.TestCase):
         
         batches = list(self.crawler.crawl_endpoint("posts"))
         
-        self.assertEqual(len(batches), 1)
+        self.assertEqual(len(batches), 2)
         self.assertEqual(mock_get.call_count, 2)
 
 if __name__ == '__main__':

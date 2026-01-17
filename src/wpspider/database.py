@@ -53,7 +53,26 @@ class DatabaseManager:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 url TEXT NOT NULL,
                 domain TEXT NOT NULL,
-                date_crawled TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                date_crawled TEXT NOT NULL
+            )
+        """)
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS http_requests (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                target_id INTEGER NOT NULL,
+                endpoint TEXT,
+                method TEXT NOT NULL,
+                url TEXT NOT NULL,
+                params TEXT,
+                request_headers TEXT,
+                response_headers TEXT,
+                status_code INTEGER,
+                error TEXT,
+                started_at TEXT NOT NULL,
+                completed_at TEXT,
+                remote_host TEXT,
+                FOREIGN KEY(target_id) REFERENCES targets(id)
             )
         """)
         
@@ -77,10 +96,40 @@ class DatabaseManager:
         cursor = self.conn.cursor()
         cursor.execute(
             "INSERT INTO targets (url, domain, date_crawled) VALUES (?, ?, ?)",
-            (url, domain, datetime.now().isoformat())
+            (url, domain, datetime.now().astimezone().isoformat())
         )
         self.conn.commit()
         logger.info(f"Logged target: {url} (ID: {cursor.lastrowid})")
+        return cursor.lastrowid
+
+    def log_http_request(self, target_id: int, endpoint: str, meta: Dict[str, Any]) -> Optional[int]:
+        if not self.conn:
+            raise RuntimeError("Database not connected")
+
+        cursor = self.conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO http_requests (
+                target_id, endpoint, method, url, params, request_headers, response_headers,
+                status_code, error, started_at, completed_at, remote_host
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                target_id,
+                endpoint,
+                meta.get("method"),
+                meta.get("url"),
+                json.dumps(meta.get("params")) if meta.get("params") is not None else None,
+                json.dumps(meta.get("request_headers")) if meta.get("request_headers") is not None else None,
+                json.dumps(meta.get("response_headers")) if meta.get("response_headers") is not None else None,
+                meta.get("status_code"),
+                meta.get("error"),
+                meta.get("started_at"),
+                meta.get("completed_at"),
+                meta.get("remote_host")
+            )
+        )
+        self.conn.commit()
         return cursor.lastrowid
 
     def ensure_endpoint_table(self, endpoint: str):
@@ -110,16 +159,41 @@ class DatabaseManager:
         cursor.execute(f"""
             CREATE TABLE IF NOT EXISTS {sanitized_table} (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                target_id INTEGER,
+                request_id INTEGER,
                 wp_id INTEGER, 
                 slug TEXT,
                 link TEXT,
                 title TEXT,
                 date TEXT,
                 data TEXT,
-                crawled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                crawled_at TEXT
             )
         """)
+        self._ensure_columns(sanitized_table, {
+            "target_id": "INTEGER",
+            "request_id": "INTEGER",
+            "wp_id": "INTEGER",
+            "slug": "TEXT",
+            "link": "TEXT",
+            "title": "TEXT",
+            "date": "TEXT",
+            "data": "TEXT",
+            "crawled_at": "TEXT"
+        })
         self.conn.commit()
+
+    def _ensure_columns(self, table_name: str, columns: Dict[str, str]):
+        if not self.conn:
+            raise RuntimeError("Database not connected")
+
+        cursor = self.conn.cursor()
+        cursor.execute(f"PRAGMA table_info({table_name})")
+        existing = {row[1] for row in cursor.fetchall()}
+
+        for col_name, col_type in columns.items():
+            if col_name not in existing:
+                cursor.execute(f"ALTER TABLE {table_name} ADD COLUMN {col_name} {col_type}")
 
     def _extract_title(self, item: Dict[str, Any]) -> Optional[str]:
         """Extracts a display title/name from various WP object structures."""
@@ -134,7 +208,7 @@ class DatabaseManager:
             
         return None
 
-    def save_batch(self, endpoint: str, data_items: List[Dict[str, Any]]):
+    def save_batch(self, endpoint: str, data_items: List[Dict[str, Any]], target_id: Optional[int] = None, request_id: Optional[int] = None):
         """
         Saves a batch of data items to the endpoint table.
         """
@@ -152,7 +226,7 @@ class DatabaseManager:
         self.ensure_endpoint_table(sanitized_table)
         
         cursor = self.conn.cursor()
-        now = datetime.now().isoformat()
+        now = datetime.now().astimezone().isoformat()
         
         try:
             # Prepare data
@@ -173,11 +247,11 @@ class DatabaseManager:
                 date_val = item.get('date_gmt') or item.get('date')
 
                 json_data = json.dumps(item)
-                rows.append((wp_id, slug, link, title, date_val, json_data, now))
+                rows.append((target_id, request_id, wp_id, slug, link, title, date_val, json_data, now))
                 
             cursor.executemany(f"""
-                INSERT INTO {sanitized_table} (wp_id, slug, link, title, date, data, crawled_at) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO {sanitized_table} (target_id, request_id, wp_id, slug, link, title, date, data, crawled_at) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, rows)
             
             self.conn.commit()

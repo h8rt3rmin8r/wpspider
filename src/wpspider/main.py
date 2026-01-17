@@ -9,8 +9,13 @@ from wpspider.crawler import WPCrawler
 
 def parse_args():
     parser = argparse.ArgumentParser(description="WPSpider: WordPress Content Crawler")
-    parser.add_argument("--target", "-t", type=str, help="Target WordPress URL or domain")
-    parser.add_argument("--output", "-o", type=str, help="Output SQLite database file")
+    parser.add_argument("--target", "-t", "--url", "--site", "--domain", type=str, help="Target WordPress URL or domain")
+
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--output", "-o", "--db", "--database", "--db-name", type=str, help="Output SQLite database file")
+    output_group.add_argument("--directory", "-d", "--outdirectory", "--outputdirectory", type=str, help="Output directory (used only when --output is not provided)")
+
+    parser.add_argument("--useragent", "--user-agent", "-u", dest="user_agent", type=str, help="Custom User-Agent string")
     return parser.parse_args()
 
 def main():
@@ -38,10 +43,10 @@ def main():
         try:
             with DatabaseManager(config.db_name) as db:
                 # Log the crawl target session
-                db.log_target(config.target)
+                target_id = db.log_target(config.target)
                 
                 # Initialize Crawler
-                crawler = WPCrawler(config.target)
+                crawler = WPCrawler(config.target, user_agent=config.user_agent)
                 
                 # 5. Pipeline Orchestration
                 for endpoint in config.endpoints:
@@ -49,9 +54,10 @@ def main():
                     try:
                         total_items = 0
                         # Iterate through batches yielded by the crawler
-                        for batch in crawler.crawl_endpoint(endpoint):
+                        for batch, request_meta in crawler.crawl_endpoint(endpoint):
+                            request_id = db.log_http_request(target_id, endpoint, request_meta)
                             if batch:
-                                db.save_batch(endpoint, batch)
+                                db.save_batch(endpoint, batch, target_id=target_id, request_id=request_id)
                                 total_items += len(batch)
                                 logger.debug(f"Saved {len(batch)} items for {endpoint}. Total so far: {total_items}")
                         
