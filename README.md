@@ -35,7 +35,7 @@ Create or edit the `config.json` file in the application directory.
 ```json
 {
     "target": "https://techcrunch.com",
-    "output_db": "techcrunch_data.db"
+    "db_name": "techcrunch_data.db"
 }
 ```
 
@@ -50,11 +50,8 @@ Create or edit the `config.json` file in the application directory.
         "categories",
         "users"
     ],
-    "output_db": "crawled_data.db",
-    "logging": {
-        "level": "INFO",
-        "path": "wpspider.log"
-    }
+    "db_name": "crawled_data.db",
+    "log_file": "wpspider.log"
 }
 ```
 
@@ -62,8 +59,8 @@ Create or edit the `config.json` file in the application directory.
 | :--- | :--- | :--- |
 | `target` | The URL or domain of the WordPress site. | **Required** |
 | `endpoints` | List of API endpoints to crawl. | `['posts', 'pages', 'media', ...]` |
-| `output_db` | Name of the SQLite database file. | `data.db` |
-| `logging.path` | Path to save the execution log. | `wpspider.log` |
+| `db_name` | Name of the SQLite database file. | `wpspider.db` |
+| `log_file` | Path to save the execution log. | `wpspider.log` |
 
 ### 2. Running the Crawler
 Run the executable (or Python script) from your terminal:

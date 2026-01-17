@@ -79,11 +79,11 @@ This document outlines the phased development plan to build the `wpspider` MVP (
 **Goal:** package the application for end-users.
 
 1.  **PyInstaller Setup**
-    -   [ ] Create `spec` file for PyInstaller.
-    -   [ ] Create `scripts/build.ps1` to run the build process.
-    -   [ ] Ensure `config.json` template is copied alongside the executable (or instructions provided).
+    -   [x] Create `spec` file for PyInstaller.
+    -   [x] Create `scripts/build.ps1` to run the build process.
+    -   [x] Ensure `config.json` template is copied alongside the executable (or instructions provided).
 
 2.  **Documentation & Validation**
-    -   [ ] Update `README.md` with usage instructions.
-    -   [ ] Document `config.json` structure.
-    -   [ ] Verify the executable runs on a clean Windows environment (if possible to test).
+    -   [x] Update `README.md` with usage instructions.
+    -   [x] Document `config.json` structure.
+    -   [x] Verify the executable runs on a clean Windows environment (if possible to test).
