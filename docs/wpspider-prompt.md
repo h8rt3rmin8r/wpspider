@@ -37,8 +37,8 @@ After deriving (or accepting as an input) the absolute path to the remote URL **
 ## Final Production
 
 - The finalized module should be bundled into a single binary executable using PyInstaller or a similar tool. This executable should be easy to deploy and run on various systems without requiring users to install Python or any dependencies manually.
-- The module should require a "cfg" file in the same directory as the executable. This "cfg" file should allow users to specify default parameters such as the target website, endpoints to crawl, output database name, and any other relevant settings.
+- The module should require a "config.json" file in the same directory as the executable. This configuration file should use JSON syntax and allow users to specify default parameters such as the target website, endpoints to crawl, output database name, and any other relevant settings.
 - Ensure that the module includes comprehensive error handling and logging to facilitate troubleshooting and ensure robustness during execution.
   - Logs should be written to a file in the same directory as the executable, with timestamps and relevant context for each log entry.
-  - Users should be able to point the logging output to a custom location via the "cfg" file if desired.
-- Provide clear documentation on how to use the executable, including instructions on configuring the "cfg" file, running the module, and interpreting the output database.
+  - Users should be able to point the logging output to a custom location via the "config.json" file if desired.
+- Provide clear documentation on how to use the executable, including instructions on configuring the "config.json" file, running the module, and interpreting the output database.
