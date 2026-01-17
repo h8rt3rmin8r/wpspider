@@ -1,0 +1,13 @@
+{
+    "endpoints": [
+        "categories",
+        "comments",
+        "media",
+        "pages",
+        "posts",
+        "tags",
+        "users"
+    ],
+    "db_name": "wpspider.db",
+    "log_file": "wpspider.log"
+}

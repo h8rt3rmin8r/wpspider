@@ -6,20 +6,20 @@ This document outlines the phased development plan to build the `wpspider` MVP (
 **Goal:** Establish the project structure, configuration management, and logging infrastructure.
 
 1.  **Project Initialization**
-    -   [ ] Create standard Python project structure (`src/wpspider/`, `tests/`).
-    -   [ ] Initialize `requirements.txt` (core dependencies: `requests`, `jsonschema` (optional), `appdirs` (maybe?), building blocks).
-    -   [ ] Create `scripts/dev.ps1` for easy local execution.
+    -   [x] Create standard Python project structure (`src/wpspider/`, `tests/`).
+    -   [x] Initialize `requirements.txt` (core dependencies: `requests`, `jsonschema` (optional), `appdirs` (maybe?), building blocks).
+    -   [x] Create `scripts/dev.ps1` for easy local execution.
 
 2.  **Configuration Manager**
-    -   [ ] Implement a `Config` class/module to read `config.json`.
-    -   [ ] Define default values (default endpoints: categories, comments, media, pages, posts, tags, users).
-    -   [ ] Implement validation: Ensure `target` is provided (via args or config).
+    -   [x] Implement a `Config` class/module to read `config.json`.
+    -   [x] Define default values (default endpoints: categories, comments, media, pages, posts, tags, users).
+    -   [x] Implement validation: Ensure `target` is provided (via args or config).
 
 3.  **Logging System**
-    -   [ ] Set up Python `logging` module.
-    -   [ ] Implement file logging (timestamped).
-    -   [ ] Add support for custom log file paths defined in `config.json`.
-    -   [ ] Ensure console output mirrors logs (optional but good for CLI).
+    -   [x] Set up Python `logging` module.
+    -   [x] Implement file logging (timestamped).
+    -   [x] Add support for custom log file paths defined in `config.json`.
+    -   [x] Ensure console output mirrors logs (optional but good for CLI).
 
 ## Phase 2: Database Architecture
 **Goal:** Implement the SQLite storage layer to handle dynamic schemas and metadata.

@@ -7,7 +7,8 @@
 - **Goal**: Produce a standalone PyInstaller executable defined by `config.json`.
 
 ## Architecture & Data Flow
-1.  **Input**: Domain/URL + Endpoints list (via `config.json` or defaults).
+1.  **Input**: Domain/URL (Runtime Argument) + Endpoints list (via `config.json` or defaults).
+    -   **Clarification**: The Target URL is highly variable and should be provided via CLI argument, not statically defined in `config.json`.
 2.  **Process**:
     - Construct API path (`/wp-json/...`).
     - Pagination loop (max `per_page=100`).
