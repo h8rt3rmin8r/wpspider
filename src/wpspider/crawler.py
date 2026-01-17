@@ -2,7 +2,7 @@ import logging
 import time
 import requests
 from typing import List, Dict, Any, Generator, Optional
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 logger = logging.getLogger(__name__)
 
@@ -15,6 +15,13 @@ class UrlBuilder:
         Ensures the target URL points to the WP API root.
         """
         target = target.strip().rstrip('/')
+
+        if target.startswith("//"):
+            target = f"https:{target}"
+
+        parsed = urlparse(target)
+        if not parsed.scheme:
+            target = f"https://{target}"
         
         if '/wp-json' not in target:
             # Assume it's a domain root, append default API path

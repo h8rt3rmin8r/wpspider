@@ -2,6 +2,7 @@ import json
 import os
 import argparse
 from typing import List, Optional
+from urllib.parse import urlparse
 
 DEFAULT_ENDPOINTS = [
     "categories",
@@ -62,9 +63,26 @@ class Config:
     def validate(self):
         if not self.target:
             raise ValueError("Configuration Error: 'target' URL is required. Please provide it via the --target command-line argument.")
+
+        self.target = self._normalize_target(self.target)
         
         if not self.endpoints:
             raise ValueError("Configuration Error: No endpoints specified.")
+
+    @staticmethod
+    def _normalize_target(target: str) -> str:
+        normalized = target.strip()
+        if not normalized:
+            return normalized
+
+        if normalized.startswith("//"):
+            normalized = f"https:{normalized}"
+
+        parsed = urlparse(normalized)
+        if not parsed.scheme:
+            normalized = f"https://{normalized}"
+
+        return normalized
 
     def __repr__(self):
         return f"<Config target={self.target} db={self.db_name} endpoints={len(self.endpoints)}>"

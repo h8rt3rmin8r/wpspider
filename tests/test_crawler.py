@@ -10,6 +10,11 @@ class TestUrlBuilder(unittest.TestCase):
             UrlBuilder.normalize_base_url("http://example.com"),
             "http://example.com/wp-json/wp/v2/"
         )
+        # Case 1b: Scheme-less domain defaults to https
+        self.assertEqual(
+            UrlBuilder.normalize_base_url("example.com"),
+            "https://example.com/wp-json/wp/v2/"
+        )
         # Case 2: Clean slash
         self.assertEqual(
             UrlBuilder.normalize_base_url("http://example.com/"),
