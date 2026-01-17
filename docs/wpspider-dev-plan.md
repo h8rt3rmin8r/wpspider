@@ -25,17 +25,18 @@ This document outlines the phased development plan to build the `wpspider` MVP (
 **Goal:** Implement the SQLite storage layer to handle dynamic schemas and metadata.
 
 1.  **Database Connection**
-    -   [ ] Create `DatabaseManager` class.
-    -   [ ] Implement connection logic to `.db` file (name from config).
+    -   [x] Create `DatabaseManager` class.
+    -   [x] Implement connection logic to `.db` file (name from config).
 
 2.  **Targets Metadata Table**
-    -   [ ] Define schema for `targets` table (`id`, `url`, `domain`, `date_crawled`).
-    -   [ ] Implement insertion/update logic for the current crawl session.
+    -   [x] Define schema for `targets` table (`id`, `url`, `domain`, `date_crawled`).
+    -   [x] Implement insertion/update logic for the current crawl session.
 
 3.  **Dynamic Endpoint Tables**
-    -   [ ] Implement logic to check if a table exists for an endpoint.
-    -   [ ] **Strategy Decision**: Implement the "Generic Data Column" approach first for safety (Columns: `id`, `data` (JSON text), `crawled_at`). This ensures no data loss if WP schemas vary.
-    -   [ ] (Optional) Add specific columns extraction if critical fields are known constants.
+    -   [x] Implement logic to check if a table exists for an endpoint.
+    -   [x] **Strategy Decision**: Implement the "Generic Data Column" approach first for safety (Columns: `id`, `data` (JSON text), `crawled_at`). This ensures no data loss if WP schemas vary.
+    -   [x] (Optional) Add specific columns extraction if critical fields are known constants.
+        -   Start with `slug`, `link`, `title` (or `name`), and `date` as these are widespread across Posts, Pages, Users, and Terms.
 
 ## Phase 3: The Crawler Engine
 **Goal:** Build the core logic for URL construction, API requests, and pagination.
